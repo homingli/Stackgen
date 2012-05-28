@@ -1,4 +1,4 @@
-name: stackgen
+name: hml-stackgen
 
 framework:
   type: node

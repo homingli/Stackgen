@@ -3,6 +3,9 @@ $(function() {
   // initialise form dials
   $(".knob").knob();
 
+  // slider
+  //$(".slider").slider();
+
   // buttons for adding extra hooks
   $("#addPreStagingHook").click(function(){
     var ptag = $('<p>', {})

@@ -12,6 +12,7 @@ input.preStagingHook, input.postStagingHook, input.preRunningHook {
 
   display:block;
   float: none !important;
+  width: 100%;
 
 }
 

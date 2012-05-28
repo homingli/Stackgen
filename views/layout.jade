@@ -6,6 +6,7 @@ html
         link(href="/stylesheets/prettify-sons-of-obsidian.css", type="text/css", rel="stylesheet")
 
         script(src='/javascripts/jquery-1.7.2.min.js') 
+        script(src="/javascripts/jquery-ui-1.8.20.custom.min.js")
         script(src='/javascripts/jquery.knob-1.1.1.js') 
         script(src='/javascripts/bootstrap-collapse.js')
         script(src='/javascripts/generate.js') 
@@ -14,6 +15,7 @@ html
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css') 
         link(rel='stylesheet', href='/stylesheets/stackgen.css') 
         link(rel='stylesheet', href='/stylesheets/bootstrap-overrides.css') 
+        link(rel="stylesheet", href="/stylesheets/cupertino/jquery-ui-1.8.20.custom.css")
 
     body
         div.navbar.navbar-fixed-top
@@ -26,15 +28,14 @@ html
                     a(href='#').brand Stackgen #{title}
                     div.nav-collapse
                         ul.nav
-                            li.active
-                                a(href='/') Home
-                            li
-                                a(href='/generate/') Generate
-                            li
-                                a(href='/examples') Examples
-                            li
-                                a(href='/about') About
-
+                                li.active
+                                    a(href='/') Home
+                                li
+                                    a(href='/generate/') Generate
+                                li
+                                    a(href='/examples') Examples
+                                li
+                                    a(href='/about') About
 
     div.container!= body
         footer

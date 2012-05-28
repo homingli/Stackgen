@@ -1,5 +1,0 @@
-envs:
-  ' POO': '"poo"'
-  CAKE: '"cake"'
-instances: 1
-mem: 128M
