@@ -64,27 +64,27 @@ div.content
                   div(class="span6")
                     legend Instances
                     label(class="control-label") How many instances does it need?
-                    input( class="knob", name="numInstances", style="height:50px;", data-skin="tron", data-width="200", data-min="1", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, data-ticks="100", value="1")
+                    input( class="knob", name="numInstances", style="height:50px;", data-skin="tron", data-width="200", data-min="1", data-max="12", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, data-ticks="100", value="1")
               
                 div(class="row")
-                  legend Services
-                  div(class="span4")
-                    label Add your services
-                    select(name="serviceChoices", id="serviceChoices")
-                        option mongodb
-                        option mysql
-                        option redis
-                        option postgresql
-                        option filesystem
-                        option rabbit
-                  
-                  div(class="span4")
-                    label Service Name
-                    input(type="text", name="serviceName", id="serviceName") 
-                  div(class="span2")
-                    a(id="addService", class="btn") 
-                      i.icon-plus
-                      |  Add service
+                  div(class="span12")
+                    legend Services
+                    div(class="span4")
+                        label Add your services
+                        select(name="serviceChoices", id="serviceChoices")
+                            option mongodb
+                            option mysql
+                            option redis
+                            option postgresql
+                            option filesystem
+                            option rabbit
+                    div(class="span4")
+                        label Service Name
+                        input(type="text", name="serviceName", id="serviceName") 
+                    div(class="span2")
+                      a(id="addService", class="btn") 
+                        i.icon-plus
+                        |  Add service
 
                 p(id="servicesCont")
 
