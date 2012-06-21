@@ -1,5 +1,5 @@
 !!!
-html
+html(lang="en")
     head
         title Stackgen #{title} 
         link(href="/prettify/prettify.css", type="text/css", rel="stylesheet")
@@ -10,10 +10,13 @@ html
         link(rel='stylesheet', href='/stylesheets/bootstrap-overrides.css') 
         link(rel="stylesheet", href="/stylesheets/cupertino/jquery-ui-1.8.20.custom.css")
 
+        script(src='/javascripts/jquery-1.7.2.min.js') 
+        script(src="/javascripts/jquery-ui-1.8.20.custom.min.js")
+
     body
         div.navbar.navbar-fixed-top
             div.navbar-inner
-                div.container
+                div.container-fluid
                     a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
                         span.icon-bar
                         span.icon-bar
@@ -30,15 +33,14 @@ html
                                 li
                                     a(href='/about') About
 
-    div.container!= body
-        footer
-            p &copy; ActiveState 2012
+    div.container-fluid!= body
 
+    footer
+       p
+       p &copy; ActiveState 2012
 
-        script(src='/javascripts/jquery-1.7.2.min.js') 
-        script(src="/javascripts/jquery-ui-1.8.20.custom.min.js")
-        script(src='/javascripts/jquery.knob-1.1.1.js') 
-        script(src='/javascripts/bootstrap-collapse.js')
-        script(src='/javascripts/generate.js') 
-        script(type="text/javascript", src="/prettify/prettify.js")
-        script(src="/prettify/lang-yaml.js")
+    script(src='/javascripts/jquery.knob-1.1.1.js') 
+    script(src='/javascripts/bootstrap-collapse.js')
+    script(src="/prettify/prettify.js")
+    script(src="/prettify/lang-yaml.js")
+    script(src='/javascripts/generate.js') 

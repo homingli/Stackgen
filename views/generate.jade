@@ -1,31 +1,24 @@
 append head
-  //script(src="/jqueryui/jquery-ui-1.8.20.custom.min.js")
-  //link(rel="stylesheet", href="/jqueryui/css/cupertino/jquery-ui-1.8.20.custom.css")
-
 
 div.hero-unit 
   h1 Generating...
 
-div.content 
-    div.row 
-      div(id="content")
-        div(id="wrapper")
-            form(id="stackgen", method="POST", action="/generate")
-                legend App basics
-                p
-                  div(class="span6")
-                    label(class="control-label") What's the name of your app?
+form(id="stackgen", method="POST", action="/generate")
+                div.row 
+                  div(class="span5")
+                    legend App basics
+                  div(class="span5")
+                    label(class="control-label") App Name
                     input( id="appName", name="appName", type="text", class="span3", placeholder="my_sample_app")
-
-                p
-                  div(class="span6")
-                    label(class="control-label") [optional] Choose a URL for your app?
+                  div(class="span5")
+                    label(class="control-label") App URL [optional] 
                     input( id="appName", name="appURL", type="text", class="span3", placeholder="mysampleapp.com")
 
-                legend Language/Framework
-                p
-                  div(class="span6")
-                    label(class="control-label") Cool, now what is the primary langage of your app?
+                div.row 
+                  div(class="span5")
+                    legend Language/Framework
+                  div(class="span5")
+                    label(class="control-label") Language
 
                     select(id="appFramework", name="appFramework", class="span3")
                         option(value="", disabled) Choose a framework...
@@ -38,11 +31,10 @@ div.content
                         option(value="php") PHP
                         option(value="ruby") Ruby
 
-                  div(class="span6")
-                    label(class="control-label") Smokin' - do you want to use a specific runtime?
+                  div(class="span5")
+                    label(class="control-label") Runtime [optional]
 
                     select(id="appRuntime", name="appRuntime", class="span3")
-                        option(value="", disabled) Choose a runtime...(optional)
                         option(value="none") None
                         option(value="perl") ActivePerl 5.14
                         option(value="python27")  ActivePython 2.7
@@ -55,21 +47,21 @@ div.content
                         option(value="ruby18") Ruby 1.8
                         option(value="ruby19")  Ruby 1.9
 
-                div(class="row")
-                  div(class="span6")
-                    legend Memory
-                    label(class="control-label") How much memory (in MB) is it going to need?
+                div.row 
+                  div(class="span5")
+                    legend Memory/Instances
+                  div(class="span5")
+                    label(class="control-label") Memory (in MB)
                     input( class="knob", name="appMem", style="height:50px;", data-skin="tron", data-width="200", data-min="32", data-max="8000", data-thickness=".2", data-bgColor="#FFFFFF", data-displayInput="true", data-ticks="8", data-cursor=true, value="128")
 
-                  div(class="span6")
-                    legend Instances
-                    label(class="control-label") How many instances does it need?
+                  div(class="span5")
+                    label(class="control-label") # of Instances
                     input( class="knob", name="numInstances", style="height:50px;", data-skin="tron", data-width="200", data-min="1", data-max="12", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, data-ticks="100", value="1")
               
-                div(class="row")
-                  div(class="span12")
+                div.row 
+                  div(class="span5")
                     legend Services
-                    div(class="span4")
+                  div(class="span3")
                         label Add your services
                         select(name="serviceChoices", id="serviceChoices")
                             option mongodb
@@ -78,62 +70,65 @@ div.content
                             option postgresql
                             option filesystem
                             option rabbit
-                    div(class="span4")
+                  div(class="span3")
                         label Service Name
                         input(type="text", name="serviceName", id="serviceName") 
-                    div(class="span2")
-                      a(id="addService", class="btn") 
-                        i.icon-plus
-                        |  Add service
+                  div(class="span2")
+                        br
+                        a(id="addService", class="btn") 
+                          i.icon-plus
+                          |  Add service
+                div.row 
+                  div(class="span5")
+                        p(id="servicesCont")
 
-                p(id="servicesCont")
-
-                p
                 legend Hooks
                 label Execute command line in different stages of deployment! More info at  &nbsp;
                     a(href='http://docs.stackato.com/deploy/stackatoyml.html#hooks') Stackato Docs 
                 div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-staging hooks
                 //span.label.label(style="font-size:18px;") These are run before any of the staging procedures
                 div(class="row")
-                    div(class="span8")
+                    div(class="span5")
                       label Hook 1
                       input(type="text", class="preStagingHook", name="preStagingHooks[]") 
-                    div(class="span4")
+                    div(class="span5")
+                      label Hook 2
+                      input(type="text", class="preStagingHook", name="preStagingHooks[]") 
+                div(class="row")
+                    div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPreStagingHook") 
                         i(class="icon-plus")
                         | Add another
-                div(class="row")
-                    div(class="span8")
-                      label Hook 2
-                      input(type="text", class="preStagingHook", name="preStagingHooks[]") 
+                      p
 
                 div.label(style="padding:3px;font-size:15px;margin-right:10px;") Post-staging hooks
                 div(class="row")
-                    div(class="span8")
+                    div(class="span5")
                       label Hook 1
                       input(type="text", class="postStagingHook", name="postStagingHooks[]") 
-                    div(class="span4")
+                    div(class="span5")
+                      label Hook 2
+                      input(type="text", class="postStagingHook", name="postStagingHooks[]") 
+                div(class="row")
+                    div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPostStagingHook") 
                         i(class="icon-plus")
                         | Add another
-                div(class="row")
-                    div(class="span8")
-                      label Hook 2
-                      input(type="text", class="postStagingHook", name="postStagingHooks[]") 
+                      p
 
                 div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-running hooks
                 div(class="row")
-                    div(class="span8")
+                    div(class="span5")
                       label Hook 1
                       input(type="text", class="preRunningHook", name="preRunningHooks[]") 
-                    div(class="span4")
+                    div(class="span5")
+                      label Hook 2
+                      input(type="text", class="preRunningHook", name="preRunningHooks[]") 
+                div(class="row")
+                    div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPreRunningHook") 
                         i(class="icon-plus")
                         | Add another
-                div(class="row")
-                    div(class="span8")
-                      label Hook 2
-                      input(type="text", class="preRunningHook", name="preRunningHooks[]") 
 
                 p
                 legend Advanced
@@ -150,31 +145,4 @@ div.content
                 div(class="span12")
                     button(type="submit", class="btn btn-large btn-success") Generate
 
-
-
-          div(id="navigation", style="display:none")
-            ul
-              li(class="selected") 
-                a(href="#") App Basics
-
-              li
-                a(href="#") Runtimes
-
-              li
-                a(href="#") Memory
-
-              li
-                a(href="#") Instances
-
-              li
-                a(href="#") Services
-
-              li
-                a(href="#") Hooks
-              li
-                a(href="#") Advanced
-
-              li
-                a(href="#") Generate
-                
 
