@@ -1,10 +1,10 @@
 append head
 
-div.hero-unit 
-  h1 Generating...
+//div.hero-unit 
+div(style="height:100px")
 
 form(id="stackgen", method="POST", action="/generate")
-                div.row 
+                div.row
                   div(class="span5")
                     legend App basics
                   div(class="span5")
@@ -55,14 +55,14 @@ form(id="stackgen", method="POST", action="/generate")
                     input( class="knob", name="appMem", style="height:50px;", data-skin="tron", data-width="200", data-min="32", data-max="8000", data-thickness=".2", data-bgColor="#FFFFFF", data-displayInput="true", data-ticks="8", data-cursor=true, value="128")
 
                   div(class="span5")
-                    label(class="control-label") # of Instances
+                    label(class="control-label") Number of Instances
                     input( class="knob", name="numInstances", style="height:50px;", data-skin="tron", data-width="200", data-min="1", data-max="12", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, data-ticks="100", value="1")
               
                 div.row 
                   div(class="span5")
                     legend Services
                   div(class="span3")
-                        label Add your services
+                        label Service Type
                         select(name="serviceChoices", id="serviceChoices")
                             option mongodb
                             option mysql
@@ -82,67 +82,66 @@ form(id="stackgen", method="POST", action="/generate")
                   div(class="span5")
                         p(id="servicesCont")
 
-                legend Hooks
-                label Execute command line in different stages of deployment! More info at  &nbsp;
-                    a(href='http://docs.stackato.com/deploy/stackatoyml.html#hooks') Stackato Docs 
-                div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-staging hooks
-                //span.label.label(style="font-size:18px;") These are run before any of the staging procedures
-                div(class="row")
-                    div(class="span5")
+                div.row 
+                  div(class="span12")
+                     legend Hooks
+                     div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-staging hooks
+                  div(class="span5")
                       label Hook 1
                       input(type="text", class="preStagingHook", name="preStagingHooks[]") 
-                    div(class="span5")
+                  div(class="span5")
                       label Hook 2
                       input(type="text", class="preStagingHook", name="preStagingHooks[]") 
-                div(class="row")
-                    div(class="span5")
+                div.row 
+                  div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPreStagingHook") 
                         i(class="icon-plus")
                         | Add another
                       p
 
-                div.label(style="padding:3px;font-size:15px;margin-right:10px;") Post-staging hooks
-                div(class="row")
-                    div(class="span5")
+                div.row
+                  div(class="span12")
+                    div.label(style="padding:3px;font-size:15px;margin-right:10px;") Post-staging hooks
+                  div(class="span5")
                       label Hook 1
                       input(type="text", class="postStagingHook", name="postStagingHooks[]") 
-                    div(class="span5")
+                  div(class="span5")
                       label Hook 2
                       input(type="text", class="postStagingHook", name="postStagingHooks[]") 
-                div(class="row")
+                div.row
                     div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPostStagingHook") 
                         i(class="icon-plus")
                         | Add another
                       p
 
-                div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-running hooks
-                div(class="row")
-                    div(class="span5")
+                div.row
+                  div(class="span12")
+                    div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-running hooks
+                  div(class="span5")
                       label Hook 1
                       input(type="text", class="preRunningHook", name="preRunningHooks[]") 
-                    div(class="span5")
+                  div(class="span5")
                       label Hook 2
                       input(type="text", class="preRunningHook", name="preRunningHooks[]") 
-                div(class="row")
-                    div(class="span5")
+                div.row
+                  div(class="span5")
                       a(href="btn", class="btn", href="#", id="addPreRunningHook") 
                         i(class="icon-plus")
                         | Add another
 
-                p
-                legend Advanced
-                div(class="span6")
-                  label ignores
-                  input(type="text", name="ignores", placeholder=".git")
+                div.row
+                    div(class="span5")
+                      legend Advanced
+                    div(class="span5")
+                      label Ignores
+                      input(type="text", name="ignores", placeholder=".git")
+                    div(class="span5")
+                      label Environment Variables
+                      input(type="text", name="envs", placeholder="var1=foo,var2=bar")
 
-                div(class="span6")
-                  label env vars
-                  input(type="text", name="envs", placeholder="var1=foo,var2=bar")
-
-                p
-                legend Generate
-                div(class="span12")
-                    button(type="submit", class="btn btn-large btn-success") Generate
+                div.row
+                    div(class="span12")
+                      button(type="submit", class="btn btn-large btn-success") Generate
 
 
