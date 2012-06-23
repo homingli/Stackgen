@@ -5,8 +5,7 @@ div(style="height:100px")
 
 form(id="stackgen", method="POST", action="/generate")
                 div.row
-                  div(class="span5")
-                    legend App basics
+                  legend.span5 App basics
                   div(class="span5")
                     label(class="control-label") App Name
                     input( id="appName", name="appName", type="text", class="span3", placeholder="my_sample_app")
@@ -15,12 +14,11 @@ form(id="stackgen", method="POST", action="/generate")
                     input( id="appName", name="appURL", type="text", class="span3", placeholder="mysampleapp.com")
 
                 div.row 
-                  div(class="span5")
-                    legend Language/Framework
-                  div(class="span5")
-                    label(class="control-label") Language
+                  legend.span5 Language/Framework
+                  div.span5
+                    label.control-label Language
 
-                    select(id="appFramework", name="appFramework", class="span3")
+                    select.span3(id="appFramework", name="appFramework")
                         option(value="", disabled) Choose a framework...
                         option(value="perl") Perl
                         option(value="python") Python
@@ -31,10 +29,10 @@ form(id="stackgen", method="POST", action="/generate")
                         option(value="php") PHP
                         option(value="ruby") Ruby
 
-                  div(class="span5")
+                  div.span5
                     label(class="control-label") Runtime [optional]
 
-                    select(id="appRuntime", name="appRuntime", class="span3")
+                    select.span3(id="appRuntime", name="appRuntime")
                         option(value="none") None
                         option(value="perl") ActivePerl 5.14
                         option(value="python27")  ActivePython 2.7
@@ -48,20 +46,19 @@ form(id="stackgen", method="POST", action="/generate")
                         option(value="ruby19")  Ruby 1.9
 
                 div.row 
-                  div(class="span5")
-                    legend Memory/Instances
-                  div(class="span5")
+                  legend.span5 Memory/Instances
+                  div.span5
                     label(class="control-label") Memory (in MB)
                     input( class="knob", name="appMem", style="height:50px;", data-skin="tron", data-width="200", data-min="32", data-max="8000", data-thickness=".2", data-bgColor="#FFFFFF", data-displayInput="true", data-ticks="8", data-cursor=true, value="128")
 
-                  div(class="span5")
-                    label(class="control-label") Number of Instances
+                  div.span5
+                    label.control-label Number of Instances
                     input( class="knob", name="numInstances", style="height:50px;", data-skin="tron", data-width="200", data-min="1", data-max="12", data-thickness=".4", data-bgColor="#FFFFFF", data-displayInput="true", data-cursor=true, data-ticks="100", value="1")
               
                 div.row 
-                  div(class="span5")
+                  div.span5
                     legend Services
-                  div(class="span3")
+                  div.span3
                         label Service Type
                         select(name="serviceChoices", id="serviceChoices")
                             option mongodb
@@ -70,78 +67,42 @@ form(id="stackgen", method="POST", action="/generate")
                             option postgresql
                             option filesystem
                             option rabbit
-                  div(class="span3")
+                  div.span3
                         label Service Name
                         input(type="text", name="serviceName", id="serviceName") 
-                  div(class="span2")
+                  div.span2
                         br
-                        a(id="addService", class="btn") 
+                        a.btn(id="addService")
                           i.icon-plus
                           |  Add service
                 div.row 
-                  div(class="span5")
+                  div.span5
                         p(id="servicesCont")
 
                 div.row 
-                  div(class="span12")
-                     legend Hooks
-                     div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-staging hooks
-                  div(class="span5")
-                      label Hook 1
-                      input(type="text", class="preStagingHook", name="preStagingHooks[]") 
-                  div(class="span5")
-                      label Hook 2
-                      input(type="text", class="preStagingHook", name="preStagingHooks[]") 
-                div.row 
-                  div(class="span5")
-                      a(href="btn", class="btn", href="#", id="addPreStagingHook") 
-                        i(class="icon-plus")
-                        | Add another
-                      p
+                  legend.span12 Hooks
+                  label.span5 Pre-staging hooks
+                  div.span5
+                      textarea(class="preStagingHook", name="preStagingHooks[]", rows="5", style="width:100%") 
 
                 div.row
-                  div(class="span12")
-                    div.label(style="padding:3px;font-size:15px;margin-right:10px;") Post-staging hooks
-                  div(class="span5")
-                      label Hook 1
-                      input(type="text", class="postStagingHook", name="postStagingHooks[]") 
-                  div(class="span5")
-                      label Hook 2
-                      input(type="text", class="postStagingHook", name="postStagingHooks[]") 
-                div.row
-                    div(class="span5")
-                      a(href="btn", class="btn", href="#", id="addPostStagingHook") 
-                        i(class="icon-plus")
-                        | Add another
-                      p
+                  label.span5 Post-staging hooks
+                  div.span5
+                      textarea(class="postStagingHook", name="postStagingHooks[]", rows="5", style="width:100%") 
 
                 div.row
-                  div(class="span12")
-                    div.label(style="padding:3px;font-size:15px;margin-right:10px;")  Pre-running hooks
-                  div(class="span5")
-                      label Hook 1
-                      input(type="text", class="preRunningHook", name="preRunningHooks[]") 
-                  div(class="span5")
-                      label Hook 2
-                      input(type="text", class="preRunningHook", name="preRunningHooks[]") 
-                div.row
-                  div(class="span5")
-                      a(href="btn", class="btn", href="#", id="addPreRunningHook") 
-                        i(class="icon-plus")
-                        | Add another
+                  label.span5 Pre-running hooks
+                  div.span5
+                      textarea(class="preRunningHook", name="preRunningHooks[]", rows="5", style="width:100%") 
 
                 div.row
-                    div(class="span5")
-                      legend Advanced
-                    div(class="span5")
+                    legend.span5 Advanced
+                    div.span5
                       label Ignores
                       input(type="text", name="ignores", placeholder=".git")
-                    div(class="span5")
+                    div.span5
                       label Environment Variables
                       input(type="text", name="envs", placeholder="var1=foo,var2=bar")
 
                 div.row
-                    div(class="span12")
-                      button(type="submit", class="btn btn-large btn-success") Generate
-
-
+                    button.span3.btn.btn-large.btn-success(type="submit") Generate
